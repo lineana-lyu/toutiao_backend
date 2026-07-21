@@ -74,7 +74,7 @@ pip install -r requirements.txt
 当前代码默认配置（可在下列文件直接修改）：
 
 - MySQL 连接串：`config/db_conf.py`
-  - `mysql+aiomysql://root:123456@localhost:3306/news_app?charset=utf8`
+  - `mysql+aiomysql://your_username:your_password@localhost:3306/news_app?charset=utf8`
 - Redis 配置：`config/cache_conf.py`
   - `host=localhost, port=6379, db=0`
 
@@ -182,6 +182,3 @@ Token 相关逻辑：
 - 补充单元测试与接口集成测试（如 `pytest + httpx`）
 - 使用 JWT 替代随机 token（可选）
 
-## 许可证
-
-当前仓库未声明许可证。若用于开源或团队协作，建议补充 `LICENSE` 文件。
