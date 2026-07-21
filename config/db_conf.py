@@ -1,6 +1,18 @@
-from sqlalchemy.ext.asyncio import async_sessionmaker, AsyncSession, create_async_engine
+import os
 
-ASYNC_DATABASE_URL = "mysql+aiomysql://root:123456@localhost:3306/news_app?charset=utf8"
+from dotenv import load_dotenv
+from sqlalchemy.ext.asyncio import (
+    AsyncSession,
+    async_sessionmaker,
+    create_async_engine,
+)
+
+load_dotenv()
+
+ASYNC_DATABASE_URL = os.getenv("DATABASE_URL")
+
+if not ASYNC_DATABASE_URL:
+    raise RuntimeError("DATABASE_URL environment variable is not configured")
 # 创建异步引擎
 async_engine = create_async_engine(
     ASYNC_DATABASE_URL,
